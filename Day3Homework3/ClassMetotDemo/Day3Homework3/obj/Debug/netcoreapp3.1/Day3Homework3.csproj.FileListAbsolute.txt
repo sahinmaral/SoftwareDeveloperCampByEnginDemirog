@@ -1,0 +1,13 @@
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.exe
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.deps.json
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.runtimeconfig.json
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.runtimeconfig.dev.json
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.dll
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\bin\Debug\netcoreapp3.1\Day3Homework3.pdb
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.csprojAssemblyReference.cache
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.AssemblyInfoInputs.cache
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.AssemblyInfo.cs
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.csproj.CoreCompileInputs.cache
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.dll
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.pdb
+C:\Users\sahin\Desktop\TotalFiles\Github Projects\EnginDemirogYazilimGelistirmeKampiOdevleri\Day3Homework3\Day3Homework3\obj\Debug\netcoreapp3.1\Day3Homework3.genruntimeconfig.cache
