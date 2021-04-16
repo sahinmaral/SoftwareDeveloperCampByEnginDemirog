@@ -14,8 +14,8 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new InMemoryCarDal());
 
-            InMemoryCarDal inMemoryCarDal = new InMemoryCarDal();
-            inMemoryCarDal.Add(new Car { CarId = 6, BrandId = 6, ColorId = 2, ModelYear = 2016, DailyPrice = 150000, Description = "Audi" });
+            carManager.Add(new Car { CarId = 6, BrandId = 6, ColorId = 2, ModelYear = 2016, DailyPrice = 150000, Description = "Audi" });
+
 
             foreach (var car in carManager.GetAll())
             {
