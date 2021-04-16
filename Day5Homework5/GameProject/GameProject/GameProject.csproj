@@ -16,4 +16,8 @@
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+  </ItemGroup>
+
 </Project>
