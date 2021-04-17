@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    class Brand:IEntity
+    public class Brand:IEntity
     {
         public int BrandId { get; set; }
-        public short BrandName { get; set; }
+        public string BrandName { get; set; }
     }
 }

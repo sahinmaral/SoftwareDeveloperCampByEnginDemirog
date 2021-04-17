@@ -20,8 +20,8 @@ namespace ConsoleUI
             foreach (var car in carManager.GetAll())
             {
                 Console.WriteLine("Arabanın ID : {0}",car.CarId);
-                Console.WriteLine("Arabanın Marka ID : {0}",car.BrandId);
-                Console.WriteLine("Arabanın Renk  ID : {0}",car.ColorId);
+                Console.WriteLine("Arabanın Markası : {0}",car.BrandName);
+                Console.WriteLine("Arabanın Rengi : {0}",car.ColorName);
                 Console.WriteLine("Arabanın Üretim Yılı : {0}",car.ModelYear);
                 Console.WriteLine("Arabanın Ücreti : {0}",car.DailyPrice);
                 Console.WriteLine("Arabanın Açıklaması : {0}",car.Description);

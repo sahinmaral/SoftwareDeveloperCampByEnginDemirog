@@ -8,7 +8,7 @@ namespace Business.Abstract
 {
     public interface ICarService
     {
-        public List<Car> GetAll();
+        public List<CarDetails> GetAll();
         public void Add(Car car);
     }
 }
