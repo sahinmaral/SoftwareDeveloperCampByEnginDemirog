@@ -6,12 +6,7 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface IBrandService
+    public interface IBrandService:IServiceBase<Brand>
     {
-        IDataResult<List<Brand>> GetAll();
-        IDataResult<Brand> GetById(int brandId);
-        IResult Insert(Brand colour);
-        IResult Update(Brand colour);
-        IResult Delete(Brand colour);
     }
 }
