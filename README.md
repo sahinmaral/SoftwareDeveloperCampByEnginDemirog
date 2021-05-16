@@ -1,7 +1,7 @@
 # SoftwareDeveloperCampByEnginDemirog/ Engin Demiroğ tarafından Yazılım Geliştirme Kampı
 
 ## In English
-This repository was created for saving Engin Demiroğ Software Development Camp homeworks, summaries and review them later on [Kodlama.io](https://www.kodlama.io/courses/enrolled/1235979) platform
+This repository was created for saving [Engin Demiroğ](https://www.linkedin.com/in/engindemirog/) Software Development Camp homeworks, summaries and review them later on [Kodlama.io](https://www.kodlama.io/courses/enrolled/1235979) platform
 <details>
 <summary> Playlist Startup Picture</summary>
 
@@ -188,7 +188,7 @@ This repository was created for saving Engin Demiroğ Software Development Camp 
 </br>
 
 ## In Turkish
-Bu repository [Kodlama.io](https://www.kodlama.io/courses/enrolled/1235979) üzerinde Engin Demiroğ Yazılım Geliştirme Kampı ödevlerini ve özetlerini kaydetmek ve sonrasında incelemek için oluşturulmuştur.
+Bu repository [Kodlama.io](https://www.kodlama.io/courses/enrolled/1235979) üzerinde [Engin Demiroğ](https://www.linkedin.com/in/engindemirog/) Yazılım Geliştirme Kampı ödevlerini ve özetlerini kaydetmek ve sonrasında incelemek için oluşturulmuştur.
 
 
 <details>
