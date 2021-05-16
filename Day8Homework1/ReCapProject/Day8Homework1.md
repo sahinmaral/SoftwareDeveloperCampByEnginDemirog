@@ -16,7 +16,7 @@ Color-->Id,Name
 6. When a new car is added to the system, run the following rules : 
 Car name has to be minimum 2 character 
 Car daily price has to be greater then 0
-7.Submit the github link to about your homework
+7. Submit the github link to about your homework
 
 # In Turkish 
 
