@@ -3,15 +3,11 @@ using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class UserValidator:AbstractValidator<User>
+    public class BrandValidator:AbstractValidator<Brand>
     {
-        public UserValidator()
+        public BrandValidator()
         {
-            RuleFor(x => x.UserEmail).NotEmpty();
-            RuleFor(x => x.UserPassword).NotEmpty();
-            RuleFor(x => x.UserFirstName).NotEmpty();
-            RuleFor(x => x.UserLastName).NotEmpty();
-            RuleFor(x => x.UserEmail).Must(x=>x.Contains("@")).WithMessage("Emailinizin ");
+            RuleFor(x => x.BrandName).NotEmpty();
         }
     }
 }

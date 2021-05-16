@@ -3,15 +3,14 @@ using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class CarValidator:AbstractValidator<Car>
+    public class CustomerValidator:AbstractValidator<Customer>
     {
-        public CarValidator()
+        public CustomerValidator()
         {
-            RuleFor(x => x.CarName).NotEmpty();
-            RuleFor(x => x.BrandId).NotEmpty();
-            RuleFor(x => x.ColourId).NotEmpty();
-            RuleFor(x => x.DailyPrice).GreaterThan(0);
-            RuleFor(x => x.CarName).MinimumLength(2);
+            RuleFor(x => x.CompanyName).NotEmpty();
+            RuleFor(x => x.UserId).NotEmpty();
+            
+            
         }
     }
 }

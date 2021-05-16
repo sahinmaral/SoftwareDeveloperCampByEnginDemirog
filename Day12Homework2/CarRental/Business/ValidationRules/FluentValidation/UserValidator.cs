@@ -3,15 +3,15 @@ using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class CarValidator:AbstractValidator<Car>
+    public class UserValidator:AbstractValidator<User>
     {
-        public CarValidator()
+        public UserValidator()
         {
-            RuleFor(x => x.CarName).NotEmpty();
-            RuleFor(x => x.BrandId).NotEmpty();
-            RuleFor(x => x.ColourId).NotEmpty();
-            RuleFor(x => x.DailyPrice).GreaterThan(0);
-            RuleFor(x => x.CarName).MinimumLength(2);
+            RuleFor(x => x.UserEmail).NotEmpty();
+            RuleFor(x => x.UserPassword).NotEmpty();
+            RuleFor(x => x.UserFirstName).NotEmpty();
+            RuleFor(x => x.UserLastName).NotEmpty();
+            RuleFor(x => x.UserEmail).Must(x=>x.Contains("@")).WithMessage("Emailinizin ");
         }
     }
 }
