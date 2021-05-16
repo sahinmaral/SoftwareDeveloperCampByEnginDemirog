@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
-
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-
 using Entities.Concrete;
 using FluentValidation;
 
@@ -26,7 +24,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Colour>> GetAll()
         {
-            if (DateTime.Now.Hour==0)
+            if (DateTime.Now.Hour == 0)
             {
                 return new ErrorDataResult<List<Colour>>(Messages.MaintenanceTime);
             }
@@ -46,15 +44,6 @@ namespace Business.Concrete
 
         public IResult Insert(Colour colour)
         {
-            var context = new ValidationContext<Colour>(colour);
-            ColourValidator colourValidator = new ColourValidator();
-            var validationResult = colourValidator.Validate(context);
-            if (!validationResult.IsValid)
-            {
-                throw new ValidationException(validationResult.Errors);
-            }
-            
-
             _colourDal.Add(colour);
             return new SuccessResult(Messages.ColourAdded);
         }

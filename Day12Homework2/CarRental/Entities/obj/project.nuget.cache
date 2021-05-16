@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "my5qva2ze5WulVMNKLv09FgoXDc85+qN/Tw1IVmoOcctlkmibIeWJVxOxP8qSIcp4+UIesfAKFrS9DTY5IG1rg==",
+  "dgSpecHash": "f2tTN0OtPfB+Sz2iXn8RK2MhHh/lzGDlMuD5UpM7CFHh00KEIkB9J4EYqpsh9ZSVt6/iopYew1giNHJ9ZHN0kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sahin\\OneDrive\\Desktop\\TotalFiles\\GithubProjects\\SoftwareDeveloperCampByEnginDemirog\\Day12Homework2\\CarRental\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sahin\\.nuget\\packages\\fluentvalidation\\10.1.0\\fluentvalidation.10.1.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.11\\microsoft.entityframeworkcore.3.1.11.nupkg.sha512",

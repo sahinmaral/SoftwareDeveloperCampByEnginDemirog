@@ -44,14 +44,6 @@ namespace Business.Concrete
 
         public IResult Insert(Rental rental)
         {
-            var context = new ValidationContext<Rental>(rental);
-            RentalValidator rentalValidator = new RentalValidator();
-            var validationResult = rentalValidator.Validate(context);
-            if (!validationResult.IsValid)
-            {
-                throw new ValidationException(validationResult.Errors);
-            }
-
             var result = _rentalDal.GetAll().SingleOrDefault(x => x.CarId == rental.CarId);
             if (result == null)
             {

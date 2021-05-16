@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
-
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
-
 using DataAccess.Abstract;
-
 using Entities.Concrete;
 using FluentValidation;
 
@@ -26,12 +23,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Brand>> GetAll()
         {
-
             if (DateTime.Now.Hour == 0)
             {
                 return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Brand>>( _brandDal.GetAll());
+
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
         public IDataResult<Brand> Get(Expression<Func<Brand, bool>> filter)
@@ -46,13 +43,6 @@ namespace Business.Concrete
 
         public IResult Insert(Brand brand)
         {
-            var context = new ValidationContext<Brand>(brand);
-            BrandValidator brandValidator = new BrandValidator();
-            var validationResult = brandValidator.Validate(context);
-            if (!validationResult.IsValid)
-            {
-                throw new ValidationException(validationResult.Errors);
-            }
             _brandDal.Add(brand);
             return new SuccessResult(Messages.BrandAdded);
         }

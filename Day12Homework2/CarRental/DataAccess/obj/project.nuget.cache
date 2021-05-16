@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YI3OfN4BEYhxsWYP3cK12hhv4gh71I2fKGANj7bmgUS2Q0Nsm7nHD9RAM0DWm6QGFiF7CI727LDjsPF3Iwo5sg==",
+  "dgSpecHash": "RO2ZLvKhZL/c5VrcvI4Qn3lEwHMhSwqDjAF33hAEGIsJ76WfSCYEAuc/JLnfdnLbRqK55dn8S3QOwrWepkXmng==",
   "success": true,
   "projectFilePath": "C:\\Users\\sahin\\OneDrive\\Desktop\\TotalFiles\\GithubProjects\\SoftwareDeveloperCampByEnginDemirog\\Day12Homework2\\CarRental\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sahin\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\fluentvalidation\\10.1.0\\fluentvalidation.10.1.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

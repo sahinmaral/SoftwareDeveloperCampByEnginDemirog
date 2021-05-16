@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Text;
-
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
-
 using DataAccess.Abstract;
-
 using Entities.Concrete;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -29,12 +26,12 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-
             if (DateTime.Now.Hour == 0)
             {
                 return new ErrorDataResult<List<User>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<User>>( _userDal.GetAll());
+
+            return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
         public IDataResult<User> Get(Expression<Func<User, bool>> filter)
@@ -49,14 +46,6 @@ namespace Business.Concrete
 
         public IResult Insert(User user)
         {
-            var context = new ValidationContext<User>(user);
-            UserValidator userValidator = new UserValidator();
-            var result = userValidator.Validate(context);
-            if (!result.IsValid)
-            {
-                throw new ValidationException(result.Errors);
-            }
-            
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }

@@ -54,15 +54,6 @@ namespace Business.Concrete
 
         public IResult Insert(Car car)
         {
-            var context = new ValidationContext<Car>(car);
-            CarValidator carValidator = new CarValidator();
-            var validationResult = carValidator.Validate(context);
-            if (!validationResult.IsValid)
-            {
-                throw new ValidationException(validationResult.Errors);
-            }
-
-
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
