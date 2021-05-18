@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
         {
             if (formFile == null || formFile.Length < 1)
             {
-                return new ErrorResult("You didn't upload at least one image.The image will be default.");
+                return new ErrorResult("You didn't upload at least one image.");
             }
 
             return new SuccessResult();

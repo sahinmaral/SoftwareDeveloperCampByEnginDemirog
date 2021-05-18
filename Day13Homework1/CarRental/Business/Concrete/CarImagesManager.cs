@@ -51,7 +51,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CarImages>(_carImagesDal.Get(x => x.Id == carImageId));
         }
 
-        //[ValidationAspect(typeof(CarImagesValidator))]
+        [ValidationAspect(typeof(CarImagesValidator))]
         public IResult Insert(IFormFile file, CarImages carImages)
         {
             var result = BusinessRules.Run(GetCarImagesLimitExceeded(carImages.CarId));
@@ -68,7 +68,7 @@ namespace Business.Concrete
 
         private IResult GetCarImagesLimitExceeded(int carId)
         {
-            var result = _carImagesDal.GetAll(x => x.CarId == carId).GroupBy(x => x.CarId).Count();
+            var result = _carImagesDal.GetAll(x => x.CarId == carId).Count();
             if (result >= 5)
             {
                 return new ErrorResult(Messages.CarImagesLimitExceeded);

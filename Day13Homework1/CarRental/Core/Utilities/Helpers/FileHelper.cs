@@ -15,7 +15,7 @@ namespace Core.Utilities.Helpers
         public IResult Upload(IFormFile file)
         {
             var fileExists = CheckFileExists(file);
-            if (fileExists.Message != null)
+            if (!fileExists.Success)
             {
                 return new ErrorResult(fileExists.Message);
             }
@@ -23,7 +23,7 @@ namespace Core.Utilities.Helpers
             var typeValid = CheckFileTypeValid(type);
             var randomName = Guid.NewGuid().ToString();
 
-            if (typeValid.Message != null)
+            if (!typeValid.Success)
             {
                 return new ErrorResult(typeValid.Message);
             }
@@ -31,13 +31,12 @@ namespace Core.Utilities.Helpers
             CheckDirectoryExists(_currentDirectory + _folderName);
             CreateFile(_currentDirectory + _folderName + randomName + type, file);
             return new SuccessResult((_folderName + randomName + type).Replace("\\", "/"));
-
         }
 
         public IResult Update(IFormFile file, string imagePath)
         {
             var fileExists = CheckFileExists(file);
-            if (fileExists.Message != null)
+            if (!fileExists.Success)
             {
                 return new ErrorResult(fileExists.Message);
             }
@@ -46,7 +45,7 @@ namespace Core.Utilities.Helpers
             var typeValid = CheckFileTypeValid(type);
             var randomName = Guid.NewGuid().ToString();
 
-            if (typeValid.Message != null)
+            if (!typeValid.Success)
             {
                 return new ErrorResult(typeValid.Message);
             }
