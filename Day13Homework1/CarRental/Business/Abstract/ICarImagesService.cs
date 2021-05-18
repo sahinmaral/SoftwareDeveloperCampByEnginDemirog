@@ -13,8 +13,8 @@ namespace Business.Abstract
         IDataResult<List<CarImages>> GetAll();
         IDataResult<CarImages> Get(Expression<Func<CarImages, bool>> filter);
         IDataResult<CarImages> GetById(int entityId);
-        IResult Insert(CarImages entity);
-        IResult Update(CarImages entity);
+        IResult Insert(IFormFile file,CarImages entity);
+        IResult Update(IFormFile file,CarImages entity);
         IResult Delete(CarImages entity);
     }
 }

@@ -1,11 +1,12 @@
-﻿using Autofac;
+﻿using System.IO;
+using Autofac;
 using Autofac.Extras.DynamicProxy;
 
 using Business.Abstract;
 using Business.Concrete;
 
 using Castle.DynamicProxy;
-
+using Core.Utilities.Helpers;
 using Core.Utilities.Interceptors;
 
 using DataAccess.Abstract;
@@ -40,6 +41,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<RentalManager>().As<IRentalService>().SingleInstance();
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<CarImagesManager>().As<ICarImagesService>().SingleInstance();
+            builder.RegisterType<FileHelper>().As<IFileHelper>().SingleInstance();
 
             #endregion
 

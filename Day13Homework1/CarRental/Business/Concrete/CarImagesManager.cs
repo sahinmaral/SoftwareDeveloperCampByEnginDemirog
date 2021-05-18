@@ -12,18 +12,23 @@ using Entities.Concrete;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using Core.Utilities.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
     public class CarImagesManager : ICarImagesService
     {
         private ICarImagesDal _carImagesDal;
+        private IFileHelper _fileHelper;
 
-        public CarImagesManager(ICarImagesDal carImagesDal)
+        public CarImagesManager(ICarImagesDal carImagesDal, IFileHelper fileHelper)
         {
             _carImagesDal = carImagesDal;
+            _fileHelper = fileHelper;
         }
 
         public IDataResult<List<CarImages>> GetAll()
@@ -46,10 +51,17 @@ namespace Business.Concrete
             return new SuccessDataResult<CarImages>(_carImagesDal.Get(x => x.Id == carImageId));
         }
 
-        [ValidationAspect(typeof(CarImagesValidator))]
-        public IResult Insert(CarImages carImages)
+        //[ValidationAspect(typeof(CarImagesValidator))]
+        public IResult Insert(IFormFile file, CarImages carImages)
         {
+            var result = BusinessRules.Run(GetCarImagesLimitExceeded(carImages.CarId));
 
+            if (result != null)
+            {
+                return result;
+            }
+            var imageResult = _fileHelper.Upload(file);
+            carImages.ImagePath = imageResult.Message;
             _carImagesDal.Add(carImages);
             return new SuccessResult(Messages.SuccessfullyAdded);
         }
@@ -79,9 +91,10 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarImagesValidator))]
-        public IResult Update(CarImages carImages)
+        public IResult Update(IFormFile file, CarImages carImages)
         {
-
+            var imageResult = _fileHelper.Update(file, carImages.ImagePath);
+            carImages.ImagePath = imageResult.Message;
             _carImagesDal.Update(carImages);
             return new SuccessResult(Messages.SuccessfullyUpdated);
         }
@@ -106,11 +119,12 @@ namespace Business.Concrete
 
             if (result != null)
             {
-                _carImagesDal.Delete(carImages);
-                return new SuccessResult(Messages.SuccessfullyDeleted);
+                return new ErrorResult(Messages.CarNotExisted);
             }
 
-            return new ErrorResult(Messages.CarNotExisted);
+            _fileHelper.Delete(carImages.ImagePath);
+            _carImagesDal.Delete(carImages);
+            return new SuccessResult(Messages.SuccessfullyDeleted);
 
 
 

@@ -1,5 +1,7 @@
-﻿using Business.Abstract;
-
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using Business.Abstract;
+using Core.Utilities.Helpers;
 using Core.Utilities.Results;
 
 using Entities.Concrete;
@@ -14,8 +16,10 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CarImagesController : ControllerBase
     {
+        private static string _currentDirectory = Environment.CurrentDirectory + "\\wwwroot";
+        private static string _folderName = "\\Images\\System\\a.png";
+        private string _defaultPath = _currentDirectory + _folderName;
         private ICarImagesService _carImagesService;
-
         public CarImagesController(ICarImagesService serviceBase)
         {
             _carImagesService = serviceBase;
@@ -36,28 +40,35 @@ namespace WebAPI.Controllers
         {
             if (formFile == null || formFile.Length < 1)
             {
-                return new ErrorResult("Please select at least one image to upload!");
+                return new ErrorResult("You didn't upload at least one image.The image will be default.");
             }
 
             return new SuccessResult();
         }
 
         [HttpPost("add")]
-        public IActionResult Add(CarImages carImages)
+        public IActionResult Add([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImages carImages)
         {
-            return GetResponseByResult(_carImagesService.Insert(carImages));
-        }
+            var result=CheckIfFileUploaded(file);
+            if (!result.Success)
+            {
+                return GetResponseByResult(result);
 
+            }
+            return GetResponseByResult(_carImagesService.Insert(file, carImages));
+        }
 
         [HttpPost("update")]
-        public IActionResult Update(CarImages carImages)
+        public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImages carImages)
         {
-            return GetResponseByResult(_carImagesService.Update(carImages));
+            var entity = _carImagesService.GetById(carImages.Id);
+            return GetResponseByResult(_carImagesService.Update(file, entity.Data));
         }
         [HttpPost("delete")]
-        public IActionResult Delete(CarImages carImages)
+        public IActionResult Delete([FromForm]int id)
         {
-            return GetResponseByResult(_carImagesService.Delete(carImages));
+            var entity = _carImagesService.GetById(id);
+            return GetResponseByResult(_carImagesService.Delete(entity.Data));
         }
 
         public IActionResult GetResponseByResult(IResult result)
