@@ -36,33 +36,17 @@ namespace WebAPI.Controllers
         {
             return GetResponseByResult(_carImagesService.GetById(id));
         }
-        private IResult CheckIfFileUploaded(IFormFile formFile)
-        {
-            if (formFile == null || formFile.Length < 1)
-            {
-                return new ErrorResult("You didn't upload at least one image.");
-            }
-
-            return new SuccessResult();
-        }
 
         [HttpPost("add")]
         public IActionResult Add([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImages carImages)
         {
-            var result=CheckIfFileUploaded(file);
-            if (!result.Success)
-            {
-                return GetResponseByResult(result);
-
-            }
             return GetResponseByResult(_carImagesService.Insert(file, carImages));
         }
 
         [HttpPost("update")]
         public IActionResult Update([FromForm(Name = "Image")] IFormFile file, [FromForm] CarImages carImages)
         {
-            var entity = _carImagesService.GetById(carImages.Id);
-            return GetResponseByResult(_carImagesService.Update(file, entity.Data));
+            return GetResponseByResult(_carImagesService.Update(file, carImages));
         }
         [HttpPost("delete")]
         public IActionResult Delete([FromForm]int id)

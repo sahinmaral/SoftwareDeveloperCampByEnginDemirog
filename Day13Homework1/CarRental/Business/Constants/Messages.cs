@@ -25,6 +25,6 @@ namespace Business.Constants
         public static string SuccessfullyRetrieved = "Başarıyla getirildi";
         public static string SuccessfullyDeleted = "Başarıyla silindi";
         public static string SuccessfullyUpdated = "Başarıyla güncellendi";
-
+        public static string SetDefaultCarImage = "Resim bulunamadı , varsayılan resim eklendi";
     }
 }

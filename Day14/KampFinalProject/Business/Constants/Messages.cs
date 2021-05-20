@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Core.Entities.Concrete;
 using Entities.Concrete;
 
 namespace Business.Constants
@@ -17,5 +17,12 @@ namespace Business.Constants
             "Ürününüzün içerdiği kategori ürün sınırı aşıldığı için işlem yapılamaz";
         public static string ProductNameAlreadyExists = "Zaten böyle bir ürün adı içeren ürün vardır";
         public static string CategoryOverload = "Kategori sınırı aşıldğı için işlem yapılamaz";
+        public static string AuthorizationDenied = "Bu işleme yetkiniz yoktur";
+        public static string PasswordError = "Şifreniz yanlış";
+        public static string SuccessfulLogin = "Başarıyla giriş yaptınız";
+        public static string UserNotFound = "Kullanıcı bulunmadı";
+        public static string UserRegistered = "Kullanıcı kayıt oldu";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string AccessTokenCreated = "Access token oluşturuldu";
     }
 }

@@ -22,6 +22,8 @@ namespace Business.Concrete
 {
     public class CarImagesManager : ICarImagesService
     {
+        private const string DefaultCarImagePath = "/Images/System/DefaultCarImage.png";
+        private const int ServerMaintenanceHour = 0;
         private ICarImagesDal _carImagesDal;
         private IFileHelper _fileHelper;
 
@@ -33,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImages>> GetAll()
         {
-            if (DateTime.Now.Hour == 0)
+            if (DateTime.Now.Hour == ServerMaintenanceHour)
             {
                 return new ErrorDataResult<List<CarImages>>(Messages.MaintenanceTime);
             }
@@ -60,8 +62,7 @@ namespace Business.Concrete
             {
                 return result;
             }
-            var imageResult = _fileHelper.Upload(file);
-            carImages.ImagePath = imageResult.Message;
+            SetDefaultCarImageOrNot(file, carImages);
             _carImagesDal.Add(carImages);
             return new SuccessResult(Messages.SuccessfullyAdded);
         }
@@ -77,24 +78,50 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public string TakeCarImagePathIfItsNotEntered(CarImages carImages)
+        private void SetDefaultCarImageOrNot(IFormFile file, CarImages carImages)
         {
-            var path = carImages.ImagePath;
-
-            if (path == null)
+            if (file == null)
             {
-                path = _carImagesDal.Get(x => x.Id == carImages.Id).ImagePath;
-                carImages.ImagePath = path;
+                carImages.ImagePath = "/Images/System/DefaultCarImage.png";
             }
+            else
+            {
+                var imageResult = _fileHelper.Upload(file);
+                carImages.ImagePath = imageResult.Message;
+            }
+        }
 
-            return carImages.ImagePath;
+        private void UpdateImage(IFormFile file, CarImages carImages)
+        {
+            var result = _carImagesDal.GetAll().Single(x => x.Id == carImages.Id).ImagePath;
+
+
+            if (carImages.ImagePath == DefaultCarImagePath && file != null)
+            {
+                var imageResult = _fileHelper.Upload(file);
+                carImages.ImagePath = imageResult.Message;
+            }
+            else if (file == null && result==DefaultCarImagePath)
+            {
+                carImages.ImagePath = "/Images/System/DefaultCarImage.png";
+            }
+            else if (file==null && result!=DefaultCarImagePath)
+            {
+                FileHelper fileHelper = new FileHelper();
+                fileHelper.Delete(result);
+                carImages.ImagePath = "/Images/System/DefaultCarImage.png";
+            }
+            else
+            {
+                var imageResult = _fileHelper.Update(file, carImages.ImagePath);
+                carImages.ImagePath = imageResult.Message;
+            }
         }
 
         [ValidationAspect(typeof(CarImagesValidator))]
         public IResult Update(IFormFile file, CarImages carImages)
         {
-            var imageResult = _fileHelper.Update(file, carImages.ImagePath);
-            carImages.ImagePath = imageResult.Message;
+            UpdateImage(file, carImages);
             _carImagesDal.Update(carImages);
             return new SuccessResult(Messages.SuccessfullyUpdated);
         }
@@ -109,8 +136,6 @@ namespace Business.Concrete
 
             return new SuccessResult();
         }
-
-
 
         [ValidationAspect(typeof(CarImagesValidator))]
         public IResult Delete(CarImages carImages)
