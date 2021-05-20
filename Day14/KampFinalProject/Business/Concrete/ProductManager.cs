@@ -74,9 +74,10 @@ namespace Business.Concrete
             var result = _productDal.GetAll(x => x.ProductName == productName).Any();
             if (!result)
             {
-                return new ErrorResult(Messages.ProductNameAlreadyExists);
+                return new SuccessResult();
             }
-            return new SuccessResult();
+            return new ErrorResult(Messages.ProductNameAlreadyExists);
+            
         }
 
 

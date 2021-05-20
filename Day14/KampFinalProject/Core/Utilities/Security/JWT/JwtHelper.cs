@@ -15,12 +15,14 @@ namespace Core.Utilities.Security.JWT
 {
     public class JwtHelper : ITokenHelper
     {
+        //Konfigürasyon dosyasının içerisindeki verileri referans alan interface
         public IConfiguration Configuration { get; }
         private TokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             Configuration = configuration;
+            //appsettings.json içerisindeki konfigürasyonlarda TokenOptions kısmını al ve TokenOptions sınıfına yaz
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
         }
